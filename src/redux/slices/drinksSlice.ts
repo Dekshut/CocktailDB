@@ -44,11 +44,22 @@ export const searchDrinkByName = createAsyncThunk(
     },
 );
 
-const fav = JSON.parse(localStorage.getItem('fav') ?? "[]")
+// const fav = JSON.parse(localStorage.getItem('fav') ?? "[]")
 
 const initialState: IDrinkSlice = {
     alcoholicDrinks: [],
-    favoritesDrinks: fav,
+    favoritesDrinks: [
+        {
+            "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/fi67641668420787.jpg",
+            "strDrink": "Sex on the Beach",
+            "idDrink": "12754"
+        },
+        {
+            "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/qcgz0t1643821443.jpg",
+            "strDrink": "Gin Tonic",
+            "idDrink": "178365"
+        }
+    ],
     allDrinksByFilter: [],
     currentFilter: 'Alcoholic',
 
@@ -78,12 +89,12 @@ const drinksSlice = createSlice({
         setCurrentFilter(state, action) {
             state.currentFilter = action.payload
         },
-        addDrinkToFav(state, action){
+        addDrinkToFav(state, action) {
             state.favoritesDrinks = [...state.favoritesDrinks, action.payload]
             const fav = JSON.stringify(state.favoritesDrinks)
             localStorage.setItem('fav', fav);
         },
-        removeDrinkFromFav(state, action){
+        removeDrinkFromFav(state, action) {
             const drinkId = action.payload
 
             state.favoritesDrinks = state.favoritesDrinks.filter(drink => drink.idDrink !== drinkId)
