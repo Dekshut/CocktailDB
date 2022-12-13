@@ -1,25 +1,54 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from 'react';
+import * as S from './App.styled';
+import { Header } from './components/Header/Header';
+import { Routes, Route, useLocation } from "react-router-dom";
+import { Home } from './pages/Home/Home';
+import { ThemeProvider } from 'styled-components';
+import { dark, light } from './styles/theme.styled';
+import { useSelector, useDispatch } from 'react-redux';
+import { AppDispatch, RootState } from './redux/store';
+import { Drinks } from './pages/Drinks/Drinks';
+import { getAlcoholicDrinks, getInitialData } from './redux/slices/drinksSlice';
+import { Switch } from 'antd';
+import { toggle3dMode } from './redux/slices/appSlice';
+import { DrinkPage } from './pages/DrinkPage/DrinkPage';
+import { Favorites } from './pages/Favorites/Favorites';
 
 function App() {
+  const dispatch = useDispatch<AppDispatch>();
+
+  const { darkMode, mode3d } = useSelector((state: RootState) => state.app);
+  const location = useLocation()
+
+  useEffect(() => {
+    dispatch(getAlcoholicDrinks());
+    dispatch(getInitialData());
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={darkMode ? dark : light}>
+      <S.App>
+        <Header />
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/drinks" element={<Drinks />} />
+          <Route path="/drink-page/:drinkId" element={<DrinkPage />} />
+          <Route path="/favorites" element={<Favorites />} />
+        </Routes>
+
+        {!location.pathname.includes('/drink-page') && (
+          <S.SwitchBtn>
+            <p>3D Mode</p>
+            <Switch
+              checked={mode3d}
+              onChange={(checked, e) => { dispatch(toggle3dMode(checked)) }}
+            />
+          </S.SwitchBtn>
+        )}
+
+      </S.App>
+    </ThemeProvider>
   );
 }
 
