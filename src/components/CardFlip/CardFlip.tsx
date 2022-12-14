@@ -18,7 +18,7 @@ export const CardFlip = ({ strDrinkThumb, strDrink, idDrink }: IDrink) => {
 
     return (
         <>
-            <S.Col onClick={() => { navigate(`/drink-page/${idDrink}`) }}>
+            <S.Col onClick={() => { navigate(`drink-page/${idDrink}`) }}>
                 <S.CardContainer
                     className="card-container"
                     onMouseLeave={() => handleChangeCoordinates(0, 0)}

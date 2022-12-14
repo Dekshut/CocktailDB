@@ -31,10 +31,10 @@ function App() {
         <Header />
 
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/drinks" element={<Drinks />} />
-          <Route path="/drink-page/:drinkId" element={<DrinkPage />} />
-          <Route path="/favorites" element={<Favorites />} />
+          <Route path="cocktaildb/" element={<Home />} />
+          <Route path="cocktaildb/drinks" element={<Drinks />} />
+          <Route path="cocktaildb/drink-page/:drinkId" element={<DrinkPage />} />
+          <Route path="cocktaildb/favorites" element={<Favorites />} />
         </Routes>
 
         {!location.pathname.includes('/drink-page') && (

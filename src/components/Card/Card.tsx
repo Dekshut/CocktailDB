@@ -61,7 +61,7 @@ export const Card = ({ drinkImg, drinkTitle, drinkId }: Props) => {
                 </S.CardText>
                 <S.CardBox height={height}>
                     <S.CardBtn className="card-btn">
-                        <Button type="primary" onClick={() => { navigate(`/drink-page/${drinkId}`) }}>View details</Button>
+                        <Button type="primary" onClick={() => { navigate(`drink-page/${drinkId}`) }}>View details</Button>
                     </S.CardBtn>
                 </S.CardBox>
                 <S.CardHeart onClick={handleToggleFav} checked={isDrinkFav}>
