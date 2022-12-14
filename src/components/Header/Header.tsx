@@ -21,13 +21,13 @@ export const Header = () => {
             TheCocktailDB
           </S.Logo>
           <S.Nav>
-            <S.NavItem to="cocktaildb/" checked={location.pathname === "cocktaildb/"}>
+            <S.NavItem to="/" checked={location.pathname === "/"}>
               Home
             </S.NavItem>
-            <S.NavItem to="cocktaildb/drinks" checked={location.pathname === "cocktaildb/drinks"}>
+            <S.NavItem to="/drinks" checked={location.pathname === "/drinks"}>
               Drinks
             </S.NavItem>
-            <S.NavItem to="cocktaildb/favorites" checked={location.pathname === "cocktaildb/favorites"} className="heart">
+            <S.NavItem to="/favorites" checked={location.pathname === "/favorites"} className="heart">
               <Badge count={favoritesDrinks.length}>
                 <HeartFilled/>
               </Badge>
