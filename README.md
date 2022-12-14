@@ -1,4 +1,4 @@
-- [LINK TO THE WEB-PAGE](https://zubov-illia.github.io/looks-like-shop/#/)
+- [LINK TO THE WEB-PAGE](https://dekshut.github.io/CocktailDB/)
 
 In order to create this project, I have used following technology and approaches:
 
