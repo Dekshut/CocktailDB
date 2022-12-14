@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/CocktailDB/static/css/main.e5d36a08.css",
+    "main.js": "/CocktailDB/static/js/main.d23012e8.js",
+    "index.html": "/CocktailDB/index.html",
+    "main.e5d36a08.css.map": "/CocktailDB/static/css/main.e5d36a08.css.map",
+    "main.d23012e8.js.map": "/CocktailDB/static/js/main.d23012e8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e5d36a08.css",
+    "static/js/main.d23012e8.js"
+  ]
+}
